@@ -237,7 +237,7 @@ class Api:
 			r = requests.delete(url=url, headers=headers)
 		else:
 			raise APIError("Unknown HTTP method")
-
+		
 		content_type = r.headers['content-type']
 
 		if content_type in [ "application/json", "application/vnd.api+json" ]:
@@ -398,13 +398,13 @@ class Api:
 		"""
 		return self._get_resource(App, app_ip)
 
-	def modify_an_app(self, appli: App, contentRightsDeclaration: str):
+	def modify_an_app(self, app: App, contentRightsDeclaration: str):
 		"""
 		:reference: https://developer.apple.com/documentation/appstoreconnectapi/modify_an_app
 		:param app_ip:
 		:return: an App resource
 		"""
-		return self._modify_resource(appli, locals())
+		return self._modify_resource(app, contentRightsDeclaration)
 
 
 	def list_app_infos(self, app_id: str):
