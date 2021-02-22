@@ -398,6 +398,15 @@ class Api:
 		"""
 		return self._get_resource(App, app_ip)
 
+	def modify_an_app(self, appli: App, contentRightsDeclaration: str):
+		"""
+		:reference: https://developer.apple.com/documentation/appstoreconnectapi/modify_an_app
+		:param app_ip:
+		:return: an App resource
+		"""
+		return self._modify_resource(appli, locals())
+
+
 	def list_app_infos(self, app_id: str):
 		"""
 		:reference: https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_infos_for_an_app

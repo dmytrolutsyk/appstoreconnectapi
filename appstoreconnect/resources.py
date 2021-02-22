@@ -184,7 +184,7 @@ class AppInfoLocalization(Resource):
 class App(Resource):
 	endpoint = '/v1/apps'
 	type = 'apps'
-	attributes = ['bundleId', 'name', 'primaryLocale', 'sku']
+	attributes = ['bundleId', 'name', 'primaryLocale', 'sku', 'contentRightsDeclaration']
 	relationships = {
 		'betaLicenseAgreement': {'multiple': False},
 		'preReleaseVersions': {'multiple': True},
