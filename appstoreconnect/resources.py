@@ -94,6 +94,15 @@ class AppScreenshot(Resource):
 	}
 	documentation = 'https://developer.apple.com/documentation/appstoreconnectapi/appscreenshot'
 
+class appPreview(Resource):
+	endpoint = '/v1/appPreviews'
+	type = 'appPreviews'
+	attributes = ['assetDeliveryState', 'videoUrl', 'mimeType', 'fileName', 'fileSize', 'sourceFileChecksum', 'uploadOperations', 'previewFrameTimeCode', 'previewImage']
+	relationships = {
+		'appPreviewSet': {'multiple': False}
+	}
+	documentation = 'https://developer.apple.com/documentation/appstoreconnectapi/appPreview'
+
 class AppScreenshotSet(Resource):
 	endpoint = '/v1/appScreenshotSets'
 	type = 'appScreenshotSets'
@@ -103,6 +112,18 @@ class AppScreenshotSet(Resource):
 		'appStoreVersionLocalization': {'multiple': False}
 	}
 	documentation = 'https://developer.apple.com/documentation/appstoreconnectapi/appscreenshotset'
+
+class AppPreviewSet(Resource):
+	endpoint = '/v1/appPreviewSets'
+	type = 'appPreviewSets'
+	attributes = ['previewType']
+	relationships = {
+		'appPreviews': {'multiple': True},
+		'appStoreVersionLocalization': {'multiple': False},
+		'appCustomProductPageLocalization': {'multiple': False},
+		'appStoreVersionExperimentTreatmentLocalization': {'multiple': False}
+	}
+	documentation = 'https://developer.apple.com/documentation/appstoreconnectapi/apppreviewset'
 
 class AppStoreVersionLocalization(Resource):
 	endpoint = '/v1/appStoreVersionLocalizations'
