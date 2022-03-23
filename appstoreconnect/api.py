@@ -604,7 +604,8 @@ class Api:
 		attributes = {'sourceFileChecksum':sourceFileChecksum, 'uploaded':uploaded}
 		return self._modify_resource(app_screenshot, attributes)
 
-	def modify_an_app_preview(self, appPreview: AppPreview, sourceFileChecksum: str, uploaded: bool, previewFrameTimeCode: str):
+	#def modify_an_app_preview(self, appPreview: AppPreview, sourceFileChecksum: str, uploaded: bool, previewFrameTimeCode: str):
+	def modify_an_app_preview(self, appPreview: AppPreview, sourceFileChecksum: str, uploaded: bool):
 		"""
 		:reference: https://developer.apple.com/documentation/appstoreconnectapi/modify_an_app_preview
 		:return: an iterator over AppPreview resources
@@ -624,7 +625,7 @@ class Api:
 		:reference: https://developer.apple.com/documentation/appstoreconnectapi/app_metadata/uploading_app_previews
 		:return: an iterator over AppScreenshot resources
 		"""
-		return self._create_resource(appPreviewSet, locals())
+		return self._create_resource(AppPreview, locals())
 
 	def upload_the_asset(self, upload_operation, binary):
 		"""
@@ -665,6 +666,13 @@ class Api:
 		:return: an iterator over AppScreenshot resource
 		"""
 		return self._delete_resource(app_screenshot)
+
+	def delete_an_app_preview(self, app_preview: AppPreview):
+		"""
+		:reference: https://developer.apple.com/documentation/appstoreconnectapi/delete_an_app_preview
+		:return: an iterator over AppPreview resource
+		"""
+		return self._delete_resource(app_preview)
 
 	def replace_all_app_screenshots_for_an_app_screenshot_set(self, app_screenshot_set, data):
 		"""
