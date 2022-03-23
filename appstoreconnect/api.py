@@ -556,7 +556,7 @@ class Api:
 		:reference: https://developer.apple.com/documentation/appstoreconnectapi/list_all_app_previews_for_an_app_preview_set
 		:return: an iterator over AppPreviewSet resources
 		"""
-		url = BASE_API + "/v1/appStoreVersionLocalizations/" + app_store_version_localization_id + "/appPreviewSets"
+		url = BASE_API + "/v1/appPreviewSets/" + app_store_version_localization_id + "/appPreviews"
 		return self._get_resources(AppPreviewSet, None, None, url)
 
 	def list_all_app_preview_sets_for_an_app_store_version_localization(self, app_store_version_localization_id):
@@ -673,6 +673,14 @@ class Api:
 		"""
 		post_data = {"data": data }
 		return self._api_call(BASE_API + "/v1/appScreenshotSets/" + app_screenshot_set.id + "/relationships/appScreenshots", HttpMethod.PATCH, post_data)
+
+	def replace_all_app_previews_for_an_app_preview_set(self, app_preview_set, data):
+		"""
+		:reference: https://developer.apple.com/documentation/appstoreconnectapi/replace_all_app_previews_for_an_app_preview_set
+		:return: an iterator over AppPreviewSet resource
+		"""
+		post_data = {"data": data }
+		return self._api_call(BASE_API + "/v1/appPreviewSets/" + app_preview_set.id + "/relationships/appPreviews", HttpMethod.PATCH, post_data)
 
 
 	# Build Resources

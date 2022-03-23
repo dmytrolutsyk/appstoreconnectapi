@@ -94,7 +94,7 @@ class AppScreenshot(Resource):
 	}
 	documentation = 'https://developer.apple.com/documentation/appstoreconnectapi/appscreenshot'
 
-class appPreview(Resource):
+class AppPreview(Resource):
 	endpoint = '/v1/appPreviews'
 	type = 'appPreviews'
 	attributes = ['assetDeliveryState', 'videoUrl', 'mimeType', 'fileName', 'fileSize', 'sourceFileChecksum', 'uploadOperations', 'previewFrameTimeCode', 'previewImage']
