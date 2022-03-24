@@ -97,7 +97,7 @@ class AppScreenshot(Resource):
 class AppPreview(Resource):
 	endpoint = '/v1/appPreviews'
 	type = 'appPreviews'
-	attributes = ['assetDeliveryState', 'videoUrl', 'mimeType', 'fileName', 'fileSize', 'sourceFileChecksum', 'uploadOperations', 'previewFrameTimeCode', 'previewImage']
+	attributes = ['assetDeliveryState', 'videoUrl', 'mimeType', 'fileName', 'fileSize', 'sourceFileChecksum', 'uploadOperations', 'previewFrameTimeCode', 'previewImage', 'uploaded']
 	relationships = {
 		'appPreviewSet': {'multiple': False}
 	}

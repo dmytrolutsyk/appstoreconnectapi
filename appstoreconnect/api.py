@@ -557,7 +557,7 @@ class Api:
 		:return: an iterator over AppPreviewSet resources
 		"""
 		url = BASE_API + "/v1/appPreviewSets/" + app_store_version_localization_id + "/appPreviews"
-		return self._get_resources(AppPreviewSet, None, None, url)
+		return self._get_resources(AppPreview, None, None, url)
 
 	def list_all_app_preview_sets_for_an_app_store_version_localization(self, app_store_version_localization_id):
 		"""
@@ -604,14 +604,12 @@ class Api:
 		attributes = {'sourceFileChecksum':sourceFileChecksum, 'uploaded':uploaded}
 		return self._modify_resource(app_screenshot, attributes)
 
-	#def modify_an_app_preview(self, appPreview: AppPreview, sourceFileChecksum: str, uploaded: bool, previewFrameTimeCode: str):
 	def modify_an_app_preview(self, appPreview: AppPreview, sourceFileChecksum: str, uploaded: bool):
 		"""
 		:reference: https://developer.apple.com/documentation/appstoreconnectapi/modify_an_app_preview
 		:return: an iterator over AppPreview resources
 		"""
-		attributes = {'sourceFileChecksum':sourceFileChecksum, 'uploaded':uploaded, 'previewFrameTimeCode':previewFrameTimeCode}
-		return self._modify_resource(appPreview, attributes)
+		return self._modify_resource(appPreview, locals())
 
 	def create_an_asset_reservation(self, appScreenshotSet: AppScreenshotSet, fileSize: int, fileName: str):
 		"""
