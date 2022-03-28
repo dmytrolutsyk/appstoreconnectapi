@@ -658,6 +658,13 @@ class Api:
 		"""
 		return self._get_resource(AppScreenshot, app_screenshot_id)
 
+	def read_app_preview_information(self, app_preview_id):
+		"""
+		:reference: https://developer.apple.com/documentation/appstoreconnectapi/read_app_preview_information
+		:return: an iterator over AppPreview resource
+		"""
+		return self._get_resource(AppPreview, app_preview_id)
+
 	def delete_an_app_screenshot(self, app_screenshot):
 		"""
 		:reference: https://developer.apple.com/documentation/appstoreconnectapi/delete_an_app_screenshot
